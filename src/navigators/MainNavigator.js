@@ -4,7 +4,7 @@ import React from 'react'
 import TabNavigation from './TabNavigation'
 
 const MainNavigator = () => {
-    const [isAuthenticated, setIsAuthenticated] = React.useState(true)
+    const [isAuthenticated, setIsAuthenticated] = React.useState(false)
     return (
         <NavigationContainer>
             {isAuthenticated ? <TabNavigation /> : <AuthStack />}
