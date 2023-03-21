@@ -1,9 +1,9 @@
 import { Favorites, History, Home, Profile } from '../screens/main'
+import { StyleSheet, Text, View } from 'react-native'
 
 import COLORS from '../constants/colors'
 import { FontAwesome } from '@expo/vector-icons';
 import React from 'react'
-import { StyleSheet } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 const Tab = createBottomTabNavigator()
@@ -25,7 +25,10 @@ const TabNavigation = () => {
                 options={{
                     tabBarLabel: 'Home',
                     tabBarIcon: ({ color, size }) => (
-                        <FontAwesome name="home" color={color} size={size} />
+                        <View style={styles.item}>
+                            <FontAwesome name="home" color={color} size={size} />
+                            <Text style={[styles.text, {color: color}]}>Inicio</Text>
+                        </View>
                     ),
                 }}
             />
@@ -33,7 +36,10 @@ const TabNavigation = () => {
                 options={{
                     tabBarLabel: 'Favorites',
                     tabBarIcon: ({ color, size }) => (
-                        <FontAwesome name="heart" color={color} size={size} />
+                        <View style={styles.item}>
+                            <FontAwesome name="heart" color={color} size={size} />
+                            <Text style={[styles.text, {color: color}]}>Favoritos</Text>
+                        </View>
                     ),
                 }}
             />
@@ -41,7 +47,10 @@ const TabNavigation = () => {
                 options={{
                     tabBarLabel: 'History',
                     tabBarIcon: ({ color, size }) => (
-                        <FontAwesome name="history" color={color} size={size} />
+                        <View style={styles.item}>
+                            <FontAwesome name="history" color={color} size={size} />
+                            <Text style={[styles.text, {color: color}]}>Historial</Text>
+                        </View>
                     ),
                 }}
             />
@@ -49,7 +58,10 @@ const TabNavigation = () => {
                 options={{
                     tabBarLabel: 'Profile',
                     tabBarIcon: ({ color, size }) => (
-                        <FontAwesome name="user" color={color} size={size} />
+                        <View style={styles.item}>
+                            <FontAwesome name="user" color={color} size={size} />
+                            <Text style={[styles.text, {color: color}]}>Perfil</Text>
+                        </View>
                     ),
                 }}
             />
@@ -60,5 +72,17 @@ const TabNavigation = () => {
 export default TabNavigation
 
 const styles = StyleSheet.create({
-    
+    tabBar: {
+        backgroundColor: COLORS.white,
+        borderTopColor: 'transparent',
+        height: 60,
+    },
+    item: {
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    text: {
+        fontSize: 10,
+        fontFamily: 'NunitoSans_400Regular',
+    },
 })
